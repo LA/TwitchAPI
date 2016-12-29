@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    background-color: #A3A2A2 !important;
 }
 
 .users-container {
@@ -7,8 +8,11 @@ body {
 }
 
 .user-panel {
-    background-color: gray;
+    background-color: #1B1B1B;
     width: 50%;
+    margin: 1% auto !important;
+    text-align: center;
+    border-radius: 3%;
 }
 
 .user-panel:hover {
@@ -25,6 +29,8 @@ body {
     max-height: 300px;
     max-width: 300px;
     display: block;
+    border-radius: 3%;
+    padding: 0 !important;
 }
 
 .online-text {
@@ -33,4 +39,8 @@ body {
 
 .offline-text {
     color: #A80014;
+}
+
+.nonexistent-text {
+    color: #000000;
 }

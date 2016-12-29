@@ -118,6 +118,7 @@ function layoutUsers(data) {
             }
         } else {
             console.log("Channel Not Found");
+            createNonexistentUser(element);
         }
     });
 }
@@ -129,13 +130,12 @@ function createLiveUser(element) {
     var url = element.stream.url;
 
     var html = "<a href=\"" + url + "\" target=\"_blank\">";
-    html += "<div class=\"user-panel online col-xs-6\">";
-    html += "<div class=\"row\">"
+    html += "<div class=\"row user-panel\">";
     html += "<img class=\"user-logo col-xs-6\" src=\"" + logo + "\"/>";
     html += "<div class=\"col-xs-6\">"
     html += "<h3 class=\"user-name online-text\">" + display_name + "</h3>";
     html += "<p>" + status + "</p>";
-    html += "</div></div></div></a>";
+    html += "</div></div></a></div>";
     console.log(display_name + " is streaming at " + url);
     $(".users-container").html($(".users-container").html() + html);
 }
@@ -146,11 +146,27 @@ function createOfflineUser(element) {
     var url = "https://www.twitch.tv/" + display_name;
 
     var html = "<a href=\"" + url + "\" target=\"_blank\">";
-    html += "<div class=\"user-panel offline col-xs-6\">";
-    html += "<div class=\"row\">"
+    html += "<div class=\"row user-panel\">";
     html += "<img class=\"user-logo col-xs-6\" src=\"" + logo + "\"/>";
     html += "<h3 class=\"user-name offline-text col-xs-6\">" + display_name + "</h3>";
     html += "</div></div></a>"
+    console.log(display_name + " is offline.");
+    $(".users-container").html($(".users-container").html() + html);
+}
+
+function createNonexistentUser(element) {
+    var display_name = "Channel " + element.error; // Channel Not Found
+    var status = element.message;
+    var logo = "http://www.drodd.com/images15/question-mark10.jpg"
+    var url = "#";
+
+    var html = "<a href=\"" + url + "\">";
+    html += "<div class=\"row user-panel\">";
+    html += "<img class=\"user-logo col-xs-6\" src=\"" + logo + "\"/>";
+    html += "<div class=\"col-xs-6\">"
+    html += "<h3 class=\"user-name nonexistent-text\">" + display_name + "</h3>";
+    html += "<p>" + status + "</p>";
+    html += "</div></div>/div></a>"
     console.log(display_name + " is offline.");
     $(".users-container").html($(".users-container").html() + html);
 }
