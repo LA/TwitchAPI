@@ -1,0 +1,36 @@
+body {
+    margin: 0;
+}
+
+.users-container {
+    width: 100%;
+}
+
+.user-panel {
+    background-color: gray;
+    width: 50%;
+}
+
+.user-panel:hover {
+    background-color: #B3B3B3;
+    cursor: pointer;
+}
+
+.user-name {
+    text-align: center;
+    color: #575756;
+}
+
+.user-logo {
+    max-height: 300px;
+    max-width: 300px;
+    display: block;
+}
+
+.online-text {
+    color: #116611;
+}
+
+.offline-text {
+    color: #A80014;
+}
